@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const { ExpressPeerServer } = require('peer');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -21,6 +22,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
+//WebRTC server
+const server = app.listen(9001);
+const peerServer = ExpressPeerServer(server, {
+  path: '/myapp'
+});
+app.use('/', peerServer);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
