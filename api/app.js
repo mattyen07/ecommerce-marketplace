@@ -27,9 +27,19 @@ app.use('/users', usersRouter);
 //WebRTC server
 const server = app.listen(9001);
 const peerServer = ExpressPeerServer(server, {
-  path: '/myapp'
+  path: '/videoChat'
 });
 app.use('/', peerServer);
+
+
+//Debugging purposes
+peerServer.on('connection', function (id) {
+  console.log('User connected with #', id);
+});
+
+peerServer.on('disconnect', function (id) {
+  console.log('User disconnected with #', id);
+});
 
 
 // catch 404 and forward to error handler
