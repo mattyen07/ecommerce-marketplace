@@ -1,14 +1,14 @@
 import React from 'react';
 
-class CreateProfile extends React.Component {
+class Signup extends React.Component {
    render() {
       return (
          <div>
-
+            <h1>Sing up asdfa</h1>
          </div>
       );
    }
 
 }
 
-export default CreateProfile;
+export default Signup;
