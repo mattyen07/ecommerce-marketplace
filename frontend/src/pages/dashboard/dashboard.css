@@ -1,0 +1,26 @@
+.dashboardContainer {
+    padding-top: 4%;
+    height: 100%; 
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+#Welcome {
+    padding-bottom: 4%;
+    width: 300px;
+}
+
+.storeRow {
+    margin: 3%;
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-evenly;
+}
+
+.store {
+    text-align: center;
+    width: 20%;
+}

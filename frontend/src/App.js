@@ -5,6 +5,7 @@ import CreateShop from './pages/createShop/createShop';
 import Dashboard from './pages/dashboard/dashboard';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
+import Shop from './pages/shop/shop';
 
 
 class App extends React.Component {

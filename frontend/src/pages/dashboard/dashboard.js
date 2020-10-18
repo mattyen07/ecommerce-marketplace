@@ -1,4 +1,5 @@
 import React from 'react';
+import './dashboard.css'
 
 
 class Shop extends React.Component {
@@ -38,13 +39,19 @@ class Dashboard extends React.Component {
 
    render() {
       return (
-         <div>
-            <h1>This is the Dashboard</h1>
+         <div className="dashboardContainer">
+            <div className="storeItem" id="Welcome">
+               Welcome to Your Dashboard!
+            </div>
             {this.props.shopList == null ? null : this.props.shopList.map(store => 
             <Shop 
                shopName={store.name} address={store.address} phone={store.phone} 
             />)}
-
+            <div className="storeRow">
+               <div className="store">store1</div>
+               <div className="store">store2</div>
+               <div className="store">store3</div>
+            </div>
          </div>
       );
    }
