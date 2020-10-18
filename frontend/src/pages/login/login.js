@@ -44,7 +44,8 @@ class Login extends React.Component {
    render() {
       return (
          <div className="login">
-            <h1>Welcome to JygSaw!</h1>
+            {/* <h1>Welcome to JygSaw!</h1> */}
+            <img src={require("./JygSaw Logo.png")} alt = "" className="item" id="logo"></img>
             <form onSubmit={this.handleSubmit}>
                <label for="email">Email</label> <br/>
                <input id="email" name="email" type="text"/> <br/>
