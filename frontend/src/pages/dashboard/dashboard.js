@@ -10,9 +10,9 @@ class Shop extends React.Component {
             console.log(this.props);
             this.props.history.push('/shop');
          }}>
-            <h1>{this.props.shopName}</h1>
-            <h1>{this.props.address}</h1>
-            <h1>{this.props.phone}</h1>
+            <h1 id="shop-name">{this.props.shopName}</h1>
+            <p id="shop-address">{this.props.address}</p>
+            <p id="shop-phone">{this.props.phone}</p>
          </div>
       );
    }
@@ -41,9 +41,7 @@ class Dashboard extends React.Component {
    render() {
       return (
          <div className="dashboardContainer">
-            <div className="storeItem" id="Welcome">
-               Welcome to Your Dashboard!
-            </div>
+            <div className="storeItem" id="Welcome">Stores</div>
             <div className="storeRow">
                {/* <div className="store">store1</div>
                <div className="store">store2</div>
