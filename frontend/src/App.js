@@ -36,7 +36,7 @@ class App extends React.Component {
       <main>
         <Switch>
           <Route path="/" render={(props) => (
-            <Login {...props} updateUserSession={this.updateUserSession} />
+            <Login {...props} updateUserSession={this.updateUserSession} user={this.state.userData} />
           )}  exact />
           <Route path="/signup" render={(props) => (
             <Signup {...props} updateUserSession={this.updateUserSession} />

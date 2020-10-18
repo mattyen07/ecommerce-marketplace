@@ -14,7 +14,8 @@ class Signup extends React.Component {
       const formData = new FormData(event.target);
       const data = {
          name: formData.get('name'),
-         email: formData.get('email')
+         email: formData.get('email'),
+         password: formData.get('password')
       }
 
       console.log(data);
@@ -51,6 +52,8 @@ class Signup extends React.Component {
                <input id="name" name="name" type="text"/> <br/>
                <label for="email">Email</label>
                <input id="email" name="email" type="text"/> <br/>
+               <label for="password">Password</label>
+               <input id="password" name="password" type="text"/> <br/>
                <label >Do you want to create a shop?</label> <br/>
                <select id="create" name="create">
                   <option value={true}>Yes</option>

@@ -7,7 +7,7 @@ class Login extends React.Component {
    constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.state = {};
+      this.state = {error: ""};
    }
 
    handleSubmit(event) {
@@ -33,13 +33,11 @@ class Login extends React.Component {
       .then(res => {
          this.props.updateUserSession(data);
          console.log(res);
-         res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
-         console.log(this.state.error);
+         // res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
       })
       .catch(e => {
          console.log(e);
       })
-
    }
 
    render() {
