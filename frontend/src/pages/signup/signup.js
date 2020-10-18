@@ -18,6 +18,9 @@ class Signup extends React.Component {
       }
 
       console.log(data);
+
+      this.props.updateUserSession(data.email);
+
       if(data.create) {
          this.props.history.push("/createShop");
       }
