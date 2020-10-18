@@ -31,7 +31,7 @@ class Login extends React.Component {
          body: JSON.stringify(data)
       })
       .then(res => {
-         this.props.updateUserSession(data);
+         //this.props.updateUserSession(data);
          console.log(res);
          console.log(res.json());
          res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
@@ -44,7 +44,7 @@ class Login extends React.Component {
    render() {
       return (
          <div className="login">
-            <h1>Welcome back!</h1>
+            <h1>Welcome to JygSaw!</h1>
             <form onSubmit={this.handleSubmit}>
                <label for="email">Email</label> <br/>
                <input id="email" name="email" type="text"/> <br/>

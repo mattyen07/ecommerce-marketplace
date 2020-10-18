@@ -12,7 +12,7 @@ class Shop extends React.Component {
       return (
          <div className="storeContainer">
             <div className="item">
-               <img src={require("./CandyStore.jpg")} className="item" id="shopImage"></img>
+               <img src={require("./CandyStore.jpg")} alt = "" className="item" id="shopImage"></img>
             </div>
             <div className="item">
                <h1>{this.state.shopName}</h1>

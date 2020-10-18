@@ -7,7 +7,8 @@ class Shop extends React.Component {
       return (
          <div onClick={() => {
             //Need to make this go to the specific shop
-            this.props.history.push('/Shop');
+            console.log(this.props);
+            this.props.history.push('/shop');
          }}>
             <h1>{this.props.shopName}</h1>
             <h1>{this.props.address}</h1>
