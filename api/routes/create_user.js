@@ -11,9 +11,15 @@ var router = express.Router();
  *      Email (uuid): string,
  *  }
  */
-router.post('/create_user', function(req, res, next) {
-    // databaseHelpers.createUser(req.body.name, req.body.email);
-    res.send('Success!');
+router.post('/', async function(req, res, next) {
+    if (await databaseHelpers.createUser(req.body.name, req.body.email) === -1) {
+        res.status(400).json({
+            status: 400,
+            message: 'Missing name or email!'
+        });
+        return;
+    };
+    res.status(200).send('Success!');
 });
 
 module.exports = router;
