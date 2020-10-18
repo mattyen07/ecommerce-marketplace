@@ -29,7 +29,7 @@ PARAMS:
 shop's email
 */
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     let roomID = await databaseHelpers.getShopUUID(req.email);
     res.redirect(302, `/${roomID}`);
 })
