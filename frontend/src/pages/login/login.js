@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './login.css'
 
 class Login extends React.Component {
 
    constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.state = {};
    }
 
    handleSubmit(event) {
@@ -29,25 +31,30 @@ class Login extends React.Component {
          },
          body: JSON.stringify(data)
       })
+      .then(res => {
+         res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
+      })
       .catch(e => {
          console.log(e);
       })
 
-      this.props.history.push("/dashboard");
 
    }
 
    render() {
       return (
-         <div>
+         <div className="login">
             <h1>Log In</h1>
             <form onSubmit={this.handleSubmit}>
-               <label for="email">Email</label>
+               <label for="email">Email</label> <br/>
                <input id="email" name="email" type="text"/> <br/>
-               <label for="password">Password</label>
+               <label for="password">Password</label> <br/>
                <input id="password" name="password" type="text"/> <br/>
                <input type="submit"/>
             </form>
+            <h1>
+               {this.state.error}
+            </h1>
             <h1>Don't have an account?</h1>
             <Link to="/signup">Sign up</Link>
          </div>
