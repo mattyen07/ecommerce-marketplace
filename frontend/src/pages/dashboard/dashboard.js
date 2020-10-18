@@ -50,7 +50,7 @@ class Dashboard extends React.Component {
                {this.state.shopList == null ? null : this.state.shopList.map(store => 
                <div className="store">
                   <Shop 
-                     shopName={store.name} address={store.address} phone={store.phone} 
+                     shopName={store.name} address={store.address} phone={store.phone} shop={store}
                   />
                </div>
                )}
