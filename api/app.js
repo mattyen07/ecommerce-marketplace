@@ -12,8 +12,8 @@ let createUserRouter = require('./routes/create_user');
 let createShopRouter = require('./routes/create_shop');
 let shopsRouter = require('./routes/shops');
 
-// change this to change the URl of the database
-const dbURL = 'mongodb://localhost:27017/dubhacks2020';
+// create this file and create the field, fill with db link (can be localhost if hosting locally)
+const dbURL = require('./config.json').azure_db_link;
 
 var app = express();
 
