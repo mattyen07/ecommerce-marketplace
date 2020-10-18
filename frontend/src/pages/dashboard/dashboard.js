@@ -4,9 +4,13 @@ import React from 'react';
 class Shop extends React.Component {
    render() {
       return (
-         <h1>{this.props.name}</h1>
-      )
-   };
+         <div>
+            <h1>{this.props.shopName}</h1>
+            <h1>{this.props.address}</h1>
+            <h1>{this.props.phone}</h1>
+         </div>
+      );
+   }
 }
 
 class Dashboard extends React.Component {
@@ -40,6 +44,7 @@ class Dashboard extends React.Component {
             <Shop 
                shopName={store.name} address={store.address} phone={store.phone} 
             />)}
+
          </div>
       );
    }
