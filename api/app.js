@@ -12,7 +12,7 @@ let createUserRouter = require('./routes/create_user');
 let createShopRouter = require('./routes/create_shop');
 
 // change this to change the URl of the database
-const dbURL = 'mongodb://localhost:27017/dubhacks2020';
+const dbURL = 'mongodb://dubhacks2020-ecommerce:QajXjBFdLmn3HyLktoo4joeO0mC10raG8AZKZi4TP5SiEg6fyyEvyUkzszeValgNvCM7ebbyLd3tGACRFTxrMw==@dubhacks2020-ecommerce.mongo.cosmos.azure.com:10255/?ssl=true&appName=@dubhacks2020-ecommerce@';
 
 var app = express();
 
