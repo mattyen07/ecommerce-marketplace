@@ -8,7 +8,7 @@ class receiveClient extends React.Component {
     }
 
     handleClick() {
-        const peer = new Peer('receiver-dubhacks2020');
+        const peer = new Peer('receiver-dubhacks2020', {host: 'localhost', port:9001, path:'/videoChat'});
         var constraints = {video: true, audio: true};
         peer.on('call', function(call) {
         navigator.mediaDevices.getUserMedia(constraints)
@@ -25,10 +25,10 @@ class receiveClient extends React.Component {
                     video.onloadedmetadata = function(e) {
                         video.play();
                     };
-            }).catch(function(err) {
+            })}).catch(function(err) {
                 console.log(err.name + ": " + err.message);
             })
-        })});
+        });
     }
 
     render() {

@@ -8,8 +8,8 @@ class callClient extends React.Component {
     }
 
     handleClick() {
-        const peer = new Peer('sender-dubhacks2020');
-        var constraints = {video: false, audio: true};
+        const peer = new Peer('sender-dubhacks2020', {host: 'localhost', port:9001, path:'/videoChat'});
+        var constraints = {video: true, audio: true};
         navigator.mediaDevices.getUserMedia(constraints)
         .then(function(localStream) {
             var video = document.querySelector("video");
