@@ -21,9 +21,8 @@ class Login extends React.Component {
 
       console.log(data);
 
-      this.props.updateUserSession(data);
-
-      fetch('', {
+      
+      fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/authentication', {
          method: 'POST',
          headers: {
             'Accept': 'application/json',
@@ -32,12 +31,14 @@ class Login extends React.Component {
          body: JSON.stringify(data)
       })
       .then(res => {
+         this.props.updateUserSession(data);
+         console.log(res);
          res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
+         console.log(this.state.error);
       })
       .catch(e => {
          console.log(e);
       })
-
 
    }
 
