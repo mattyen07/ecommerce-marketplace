@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const { ExpressPeerServer } = require('peer');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 
@@ -29,6 +30,25 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/create_user', createUserRouter);
 app.use('/create_shop', createShopRouter);
+
+
+//WebRTC server
+const server = app.listen(9001);
+const peerServer = ExpressPeerServer(server, {
+  path: '/videoChat'
+});
+app.use('/', peerServer);
+
+
+//Debugging purposes
+peerServer.on('connection', function (id) {
+  console.log('User connected with #', id);
+});
+
+peerServer.on('disconnect', function (id) {
+  console.log('User disconnected with #', id);
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
