@@ -4,9 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 const { ExpressPeerServer } = require('peer');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+let createUserRouter = require('./routes/create_user');
+let createShopRouter = require('./routes/create_shop');
+
+// change this to change the URl of the database
+const dbURL = 'mongodb://localhost:27017/dubhacks2020';
 
 var app = express();
 
@@ -22,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/create_user', createUserRouter);
+app.use('/create_shop', createShopRouter);
 
 
 //WebRTC server
@@ -56,6 +64,15 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// start database connection
+mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true});
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+    console.log("Database connected!");
 });
 
 module.exports = app;
