@@ -4,7 +4,7 @@ import React from 'react';
 class Shop extends React.Component {
    render() {
       return (
-         <h1>This is a shop</h1>
+         <h1>{this.props.name}</h1>
       )
    };
 }
@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
             <h1>This is the Dashboard</h1>
             {this.props.shopList == null ? null : this.props.shopList.map(store => 
             <Shop 
-               name={shop.name} address={shop.address} 
+               shopName={shop.name} address={shop.address} phone={shop.phone} 
             />)}
          </div>
       );
