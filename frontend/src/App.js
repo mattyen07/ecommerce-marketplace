@@ -46,6 +46,7 @@ class App extends React.Component {
             <Dashboard {...props} updateShopList={this.updateShopList} shopList={this.state.shopList} />
           )} />
           <Route path="/createShop" component={CreateShop} />
+          <Route path="/shop" component={Shop} />
           <Route component={Error} />
         </Switch>
       </main>
