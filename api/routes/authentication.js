@@ -10,7 +10,12 @@ router.post('/', async function(req, res, next) {
 
     let userData = await databaseHelpers.getUser(email);
     if (userData.password === password) {
-        res.status(200).send('Success!');
+        let storeData = {};
+        if (userData.storeOwner) {
+            storeData = databaseHelpers.getShopFromEmail(userData.email);
+        }
+
+        res.status(200).send(storeData);
     } else {
         res.status(401).send('Password Incorrect');
     }

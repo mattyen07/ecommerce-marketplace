@@ -2,12 +2,14 @@ const User = require('../models/userModel');
 const Shop = require('../models/shopModel');
 const uuid = require('uuid');
 
-exports.createUser =  async function(name, email) {
-    if (name == undefined || email == undefined) {
+exports.createUser =  async function(name, email, password, storeOwner) {
+    if (name == undefined || email == undefined || password == undefined) {
         return -1;
     }
+    
+    if (storeOwner == undefined) storeOwner = false;
 
-    const user = new User({name: name, email: email});
+    const user = new User({name: name, email: email, password: password, storeOwner: storeOwner});
     await user.save();
     console.log(`User ${name} created`);
     return 0;
