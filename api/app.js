@@ -30,7 +30,7 @@ shop's email
 */
 
 app.get('/', async (req, res) => {
-    let roomID = await databaseHelpers.getShopUUID(req.body.email);
+    let roomID = "AndreaCandyShop"
     res.redirect(302, `/${roomID}`);
 })
 
