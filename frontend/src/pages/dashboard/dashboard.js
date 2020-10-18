@@ -21,9 +21,10 @@ class Dashboard extends React.Component {
 
    getShops = async () => {
       try {
-         const response = await fetch('');
+         const response = await fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/shops');
          const json = await response.json();
-         this.props.updateShopList(json);
+         console.log(json);
+         // this.props.updateShopList(json);
       }
       catch(e) {
          console.log(e);
@@ -37,7 +38,7 @@ class Dashboard extends React.Component {
             <h1>This is the Dashboard</h1>
             {this.props.shopList == null ? null : this.props.shopList.map(store => 
             <Shop 
-               shopName={shop.name} address={shop.address} phone={shop.phone} 
+               shopName={store.name} address={store.address} phone={store.phone} 
             />)}
          </div>
       );
