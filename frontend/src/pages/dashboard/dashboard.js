@@ -1,14 +1,12 @@
 import React from 'react';
-import './dashboard.css'
+import './dashboard.css';
+import history from "../../history";
 
-
-class Shop extends React.Component {
+class ShopCard extends React.Component {
    render() {
       return (
          <div onClick={() => {
-            //Need to make this go to the specific shop
-            console.log(this.props);
-            this.props.history.push('/shop');
+            history.push('/shop');
          }}>
             <h1>{this.props.shopName}</h1>
             <h1>{this.props.address}</h1>
@@ -45,14 +43,9 @@ class Dashboard extends React.Component {
                Welcome to Your Dashboard!
             </div>
             <div className="storeRow">
-               {/* <div className="store">store1</div>
-               <div className="store">store2</div>
-               <div className="store">store3</div> */}
                {this.state.shopList == null ? null : this.state.shopList.map(store => 
                <div className="store">
-                  <Shop
-                     shopName={store.name} address={store.address} phone={store.phone} shop={store}
-                  />
+                  <ShopCard shopName={store.name} address={store.address} phone={store.phone} shop={store} />
                </div>
                )}
             </div>
