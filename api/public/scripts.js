@@ -1,10 +1,6 @@
-
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
-const myPeer = new Peer(undefined, {
-  host: '/',
-  port: '3001'
-})
+const myPeer = new Peer(undefined)
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
@@ -54,8 +50,4 @@ function addVideoStream(video, stream) {
     video.play()
   })
   videoGrid.append(video)
-}
-
-class videoGrid extends React.Component {
-    
 }
