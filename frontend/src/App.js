@@ -10,13 +10,25 @@ import Signup from './pages/signup/signup';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {userData: null, shopList: null};
+    this.updateUserSession = this.updateUserSession.bind(this);
+    this.updateShopList = this.updateShopList.bind(this);
   }
 
-  updateUserSession(userEmail) {
-    this.setState({id: userEmail, ...this.state});
+  updateUserSession(data) {
+    this.setState((state) => {
+      return {userData: data, ...state}
+    });
     console.log('state has been set');
   }
+
+  updateShopList(data) {
+    this.setState((state) => {
+      return {shopList: data, ...state}
+    });
+    console.log('state has been set');
+  }
+
   
 
   render() {
@@ -25,9 +37,11 @@ class App extends React.Component {
         <Switch>
           <Route path="/" component={Login} exact />
           <Route path="/signup" render={(props) => (
-            <Signup {...props} handleSignup={this.updateUserSession} />
+            <Signup {...props} updateUserSession={this.updateUserSession} />
           )} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" render={(props) => (
+            <Dashboard {...props} updateShopList={this.updateShopList} shopList={this.state.shopList} />
+          )} />
           <Route path="/createShop" component={CreateShop} />
           <Route component={Error} />
         </Switch>
