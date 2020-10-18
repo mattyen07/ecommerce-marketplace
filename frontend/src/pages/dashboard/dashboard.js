@@ -35,7 +35,10 @@ class Dashboard extends React.Component {
       return (
          <div>
             <h1>This is the Dashboard</h1>
-            {this.props.shopList == null ? null : this.props.shopList.map(shop => <Shop />)}
+            {this.props.shopList == null ? null : this.props.shopList.map(store => 
+            <Shop 
+               name={shop.name} address={shop.address} 
+            />)}
          </div>
       );
    }
