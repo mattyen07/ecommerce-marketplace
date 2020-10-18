@@ -5,6 +5,9 @@ import CreateShop from './pages/createShop/createShop';
 import Dashboard from './pages/dashboard/dashboard';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
+import callClient from './pages/PeerServerCaller';
+import receiveClient from './pages/PeerServerReceiver';
+import AppStreamCam from './pages/videoTest';
 
 
 class App extends React.Component {
@@ -43,6 +46,9 @@ class App extends React.Component {
             <Dashboard {...props} updateShopList={this.updateShopList} shopList={this.state.shopList} />
           )} />
           <Route path="/createShop" component={CreateShop} />
+          <Route path="/send" component={callClient}/>
+          <Route path="/receive" component={receiveClient}/>
+          <Route path="/video" component={AppStreamCam} />
           <Route component={Error} />
         </Switch>
       </main>
