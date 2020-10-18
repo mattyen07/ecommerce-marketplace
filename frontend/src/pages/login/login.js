@@ -7,7 +7,7 @@ class Login extends React.Component {
    constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.state = {};
+      this.state = {error: ""};
    }
 
    handleSubmit(event) {
@@ -33,13 +33,12 @@ class Login extends React.Component {
       .then(res => {
          this.props.updateUserSession(data);
          console.log(res);
+         console.log(res.json());
          res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
-         console.log(this.state.error);
       })
       .catch(e => {
          console.log(e);
       })
-
    }
 
    render() {
@@ -54,7 +53,7 @@ class Login extends React.Component {
                <input type="submit"/>
             </form>
             <h1>
-               {this.state.error}
+               {this.props.userData}
             </h1>
             <div className="signUpOption">
                <h1>Don't have an account?</h1>

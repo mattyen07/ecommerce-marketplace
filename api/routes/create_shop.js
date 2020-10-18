@@ -13,7 +13,7 @@ router.post('/', async function(req, res) {
         return;
     };
 
-    if (await databaseHelpers.createUser(req.body.ownerName, req.body.email, req.body.password) == -1) {
+    if (await databaseHelpers.createUser(req.body.ownerName, req.body.email, req.body.password, true) == -1) {
         res.status(400).json({
             status: 400,
             message: 'Missing name or email or password!'

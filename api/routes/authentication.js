@@ -12,7 +12,7 @@ router.post('/', async function(req, res, next) {
     if (userData.password === password) {
         let storeData = {};
         if (userData.storeOwner) {
-            storeData = databaseHelpers.getShopFromEmail(userData.email);
+            storeData = await databaseHelpers.getShopFromEmail(userData.email);
         }
 
         res.status(200).send(storeData);

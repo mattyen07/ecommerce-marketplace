@@ -5,7 +5,10 @@ import './dashboard.css'
 class Shop extends React.Component {
    render() {
       return (
-         <div>
+         <div onClick={() => {
+            //Need to make this go to the specific shop
+            this.props.history.push('/Shop');
+         }}>
             <h1>{this.props.shopName}</h1>
             <h1>{this.props.address}</h1>
             <h1>{this.props.phone}</h1>
@@ -17,6 +20,7 @@ class Shop extends React.Component {
 class Dashboard extends React.Component {
    constructor(props) {
       super(props);
+      this.state = {shopList: null};
       this.getShops = this.getShops.bind(this);
    }
 
@@ -29,7 +33,10 @@ class Dashboard extends React.Component {
          const response = await fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/shops');
          const json = await response.json();
          console.log(json);
-         // this.props.updateShopList(json);
+         this.setState((state) => {
+            return {shopList: json}
+          });
+          console.log('state has been set');
       }
       catch(e) {
          console.log(e);
@@ -43,7 +50,7 @@ class Dashboard extends React.Component {
             <div className="storeItem" id="Welcome">
                Welcome to Your Dashboard!
             </div>
-            {this.props.shopList == null ? null : this.props.shopList.map(store => 
+            {this.state.shopList == null ? null : this.state.shopList.map(store => 
             <Shop 
                shopName={store.name} address={store.address} phone={store.phone} 
             />)}

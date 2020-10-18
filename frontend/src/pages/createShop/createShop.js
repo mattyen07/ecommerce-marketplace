@@ -16,13 +16,54 @@ class CreateShop extends React.Component {
          ownerName: formData.get('ownerName'),
          email: formData.get('email'),
          address: formData.get('address'),
-         phoneNumber: formData.get('phoneNumber')
+         phoneNumber: formData.get('phoneNumber'),
+         availability: {
+            "monday": {
+                "from": "09:00",
+                "to": "17:00"
+            },
+            "tuesday": {
+                "from": "09:00",
+                "to": "17:00"
+            },
+            "wednesday": {
+                "from": "09:00",
+                "to": "17:00"
+            },
+            "thursday": {
+                "from": "09:00",
+                "to": "17:00"
+            },
+            "friday": {
+                "from": "09:00",
+                "to": "17:00"
+            },
+            "saturday": {
+                "from": "09:00",
+                "to": "17:00"
+            },
+            "sunday": {
+                "from": "09:00",
+                "to": "17:00"
+            }
+        }
       }
 
-      console.log(data);
 
-
-      this.props.history.push("/dashboard");
+      fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/create_shop', {
+         method: 'POST',
+         headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(data)
+      })
+      .then(res => {
+         this.props.history.push("/dashboard");
+      })
+      .catch(e => {
+         console.log(e);
+      })
 
    }
 
@@ -42,7 +83,6 @@ class CreateShop extends React.Component {
                <label>Phone Number</label>
                <input id="phoneNumber" name="phoneNumber" type="text" /> <br/>
                <input type="submit" />
-               {/* Add stuff for availability and adding items */}
             </form>
          </div>
       );
