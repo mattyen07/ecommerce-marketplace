@@ -1,4 +1,5 @@
 import React from 'react';
+import './shop.css'
 
 class Shop extends React.Component {
    constructor (props) {
@@ -9,12 +10,17 @@ class Shop extends React.Component {
    
    render() {
       return (
-         <div>
-            <h1>{this.state.shopName}</h1>
-            <h1>{this.state.ownerName}</h1>
-            <h1>{this.state.email}</h1>
-            <h1>{this.state.address}</h1>
-            {this.state.products.map(name => <h1>{name}</h1>)}
+         <div className="storeContainer">
+            <div className="item">
+               <img src={"Background3.jpg"}></img>
+            </div>
+            <div className="item">
+               <h1>{this.state.shopName}</h1>
+               <h1>{this.state.ownerName}</h1>
+               <h1>{this.state.email}</h1>
+               <h1>{this.state.address}</h1>
+               {this.state.products.map(name => <h1>{name}</h1>)}
+            </div>
          </div>
       );
    }
