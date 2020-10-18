@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 let createUserRouter = require('./routes/create_user');
 let createShopRouter = require('./routes/create_shop');
 let shopsRouter = require('./routes/shops');
+let authenticationRouter = require('./routes/authentication');
 
 // create this file and create the field, fill with db link (can be localhost if hosting locally)
 const dbURL = require('./config.json').azure_db_link;
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/authentication', authenticationRouter);
 app.use('/create_user', createUserRouter);
 app.use('/create_shop', createShopRouter);
 app.use('/shops', shopsRouter);
