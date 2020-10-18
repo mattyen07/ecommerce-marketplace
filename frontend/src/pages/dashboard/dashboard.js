@@ -21,7 +21,6 @@ class Dashboard extends React.Component {
    constructor(props) {
       super(props);
       this.state = {shopList: null};
-      this.getShops = this.getShops.bind(this);
    }
 
    componentDidMount() {
@@ -33,7 +32,7 @@ class Dashboard extends React.Component {
          }
       })
       .then(res => res.json())
-      .then(json => console.log(json))
+      .then(json => this.setState({shopList: json}))
       .catch(e => console.log(e)); 
    }
 
@@ -44,14 +43,17 @@ class Dashboard extends React.Component {
             <div className="storeItem" id="Welcome">
                Welcome to Your Dashboard!
             </div>
-            {this.state.shopList == null ? null : this.state.shopList.map(store => 
-            <Shop 
-               shopName={store.name} address={store.address} phone={store.phone} 
-            />)}
             <div className="storeRow">
-               <div className="store">store1</div>
+               {/* <div className="store">store1</div>
                <div className="store">store2</div>
-               <div className="store">store3</div>
+               <div className="store">store3</div> */}
+               {this.state.shopList == null ? null : this.state.shopList.map(store => 
+               <div className="store">
+                  <Shop 
+                     shopName={store.name} address={store.address} phone={store.phone} shop={store}
+                  />
+               </div>
+               )}
             </div>
          </div>
       );
