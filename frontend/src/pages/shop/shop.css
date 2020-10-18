@@ -1,13 +1,13 @@
-.shop {
+.storeContainer {
+    padding-top: 4%;
     height: 100%; 
     width: 100%;
     display: flex;
-    background-color: black;
-    background-size: cover; 
-    background-attachment: fixed;
-    flex-direction: column; 
-    justify-content: center; 
+    flex-direction: row; 
     align-items: center;
-    position: relative; 
+}
 
+.item {
+    width: 50%;
+    text-align: center;
 }
