@@ -1,10 +1,10 @@
 .login {
-   margin-top: 30vh;
+   margin-top: 15vh;
    display: flex;
    align-items: center;
    flex-direction: column;
    justify-content: space-around;
-   height: 40vh;
+   height: 70vh;
 }
 
 .login form {
