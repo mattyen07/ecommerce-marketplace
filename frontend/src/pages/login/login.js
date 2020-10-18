@@ -33,7 +33,8 @@ class Login extends React.Component {
       .then(res => {
          this.props.updateUserSession(data);
          console.log(res);
-         // res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
+         console.log(res.json());
+         res.status === 401 ? this.setState({error: "Try Again"}) : this.props.history.push("/dashboard");
       })
       .catch(e => {
          console.log(e);
@@ -52,7 +53,7 @@ class Login extends React.Component {
                <input type="submit"/>
             </form>
             <h1>
-               {this.state.error}
+               {this.props.userData}
             </h1>
             <div className="signUpOption">
                <h1>Don't have an account?</h1>

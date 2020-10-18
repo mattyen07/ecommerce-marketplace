@@ -20,8 +20,6 @@ class Signup extends React.Component {
 
       console.log(data);
 
-      this.props.updateUserSession(data);
-
       fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/create_user', {
          method: 'POST',
          headers: {

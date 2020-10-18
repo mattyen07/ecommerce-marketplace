@@ -83,7 +83,6 @@ class CreateShop extends React.Component {
                <label>Phone Number</label>
                <input id="phoneNumber" name="phoneNumber" type="text" /> <br/>
                <input type="submit" />
-               {/* Add stuff for availability and adding items */}
             </form>
          </div>
       );
