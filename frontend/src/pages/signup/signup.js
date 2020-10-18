@@ -14,12 +14,25 @@ class Signup extends React.Component {
       const data = {
          name: formData.get('name'),
          email: formData.get('email'),
-         create: formData.get('create')
+         create: formData.get('create'),
       }
 
       console.log(data);
 
-      this.props.updateUserSession(data.email);
+      this.props.updateUserSession(data);
+
+      fetch('', {
+         method: 'POST',
+         headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(data)
+      })
+      .catch(e => {
+         console.log(e);
+      })
+
 
       if(data.create) {
          this.props.history.push("/createShop");

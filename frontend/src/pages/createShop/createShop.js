@@ -15,6 +15,8 @@ class CreateShop extends React.Component {
          shopName: formData.get('shopName'),
          ownerName: formData.get('ownerName'),
          email: formData.get('email'),
+         address: formData.get('address'),
+         phoneNumber: formData.get('phoneNumber')
       }
 
       console.log(data);
@@ -35,6 +37,10 @@ class CreateShop extends React.Component {
                <input id="ownerName" name="ownerName" type="text" /> <br/>
                <label>Email</label>
                <input id="email" name="email" type="text" /> <br/>
+               <label>Address</label>
+               <input id="address" name="address" type="text" /> <br/>
+               <label>Phone Number</label>
+               <input id="phoneNumber" name="phoneNumber" type="text" /> <br/>
                <input type="submit" />
                {/* Add stuff for availability and adding items */}
             </form>
