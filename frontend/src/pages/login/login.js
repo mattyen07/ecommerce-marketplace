@@ -44,7 +44,7 @@ class Login extends React.Component {
    render() {
       return (
          <div className="login">
-            <h1>Log In</h1>
+            <h1>Welcome back!</h1>
             <form onSubmit={this.handleSubmit}>
                <label for="email">Email</label> <br/>
                <input id="email" name="email" type="text"/> <br/>
@@ -55,8 +55,10 @@ class Login extends React.Component {
             <h1>
                {this.state.error}
             </h1>
-            <h1>Don't have an account?</h1>
-            <Link to="/signup">Sign up</Link>
+            <div className="signUpOption">
+               <h1>Don't have an account?</h1>
+               <Link to="/signup">Sign up</Link>
+            </div>
          </div>
       );
    }

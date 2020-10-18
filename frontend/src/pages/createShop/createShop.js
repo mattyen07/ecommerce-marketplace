@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './createShop.css'
 
 class CreateShop extends React.Component {
    constructor(props) {
@@ -28,7 +28,7 @@ class CreateShop extends React.Component {
 
    render() {
       return (
-         <div>
+         <div className="createShop">
             <h1>Create a shop!</h1>
             <form onSubmit={this.handleSubmit}>
                <label>Shop Name</label>
