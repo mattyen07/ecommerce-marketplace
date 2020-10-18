@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const shopSchema = new Schema({
+    uuid: String,
     name: String,
     ownerName: String,
     email: String,
