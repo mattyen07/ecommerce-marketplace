@@ -9,15 +9,6 @@ import Shop from './pages/shop/shop';
 
 
 class App extends React.Component {
-
-  // updateUserSession(data) {
-  //   this.setState((state) => {
-  //     return {userData: data, ...state}
-  //   });
-  //   console.log('state has been set');
-  // }
-
-
   render() {
     return (
       <main>

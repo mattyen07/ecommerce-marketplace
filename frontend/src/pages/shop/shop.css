@@ -1,13 +1,22 @@
-.shop {
+.storeContainer {
+    padding-top: 8%;
     height: 100%; 
     width: 100%;
     display: flex;
-    background-color: black;
-    background-size: cover; 
-    background-attachment: fixed;
-    flex-direction: column; 
-    justify-content: center; 
+    flex-direction: row; 
     align-items: center;
-    position: relative; 
+}
 
+.item {
+    text-align: center;
+    width: 80%;
+}
+
+.item h1 {
+    margin: 5%;
+}
+
+#shopImage {
+    margin-left: 25%;
+    border-radius: 5%;
 }
