@@ -5,6 +5,8 @@ const shopSchema = new Schema({
     name: String,
     ownerName: String,
     email: String,
+    address: String,
+    phone: String,
     items: [{
         name: String,
         price: Number,
