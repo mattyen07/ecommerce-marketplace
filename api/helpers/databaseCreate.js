@@ -17,7 +17,7 @@ exports.createUser =  async function(name, email, password, storeOwner) {
 
 exports.createShop = async function(data) {
     // availability and items are optional fields
-    if (data.name == undefined || data.email == undefined || data.ownerName == undefined) {
+    if (data.name == undefined || data.email == undefined || data.ownerName == undefined || data.address == undefined || data.phone == undefined) {
         return -1;
     }
 
@@ -28,6 +28,8 @@ exports.createShop = async function(data) {
         name: data.name,
         ownerName: data.ownerName,
         email: data.email,
+        address: data.address,
+        phone: data.phone,
         items: data.items,
         availability: data.availability
     });
