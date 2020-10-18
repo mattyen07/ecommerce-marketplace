@@ -1,4 +1,5 @@
 import React from 'react';
+import './signup.css'
 
 class Signup extends React.Component {
 
@@ -13,15 +14,14 @@ class Signup extends React.Component {
       const formData = new FormData(event.target);
       const data = {
          name: formData.get('name'),
-         email: formData.get('email'),
-         create: formData.get('create'),
+         email: formData.get('email')
       }
 
       console.log(data);
 
       this.props.updateUserSession(data);
 
-      fetch('', {
+      fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/create_user', {
          method: 'POST',
          headers: {
             'Accept': 'application/json',
@@ -34,7 +34,7 @@ class Signup extends React.Component {
       })
 
 
-      if(data.create) {
+      if(formData.get('create')) {
          this.props.history.push("/createShop");
       }
       else {
@@ -44,7 +44,7 @@ class Signup extends React.Component {
 
    render() {
       return (
-         <div>
+         <div className="signup">
             <h1>Sign Up</h1>
             <form onSubmit={this.handleSubmit}>
                <label for="name">Name</label>

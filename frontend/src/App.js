@@ -10,7 +10,7 @@ import Signup from './pages/signup/signup';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {userData: null, shopList: null};
+    this.state = {userData: null, shopList: [{name: "", address: ""}]};
     this.updateUserSession = this.updateUserSession.bind(this);
     this.updateShopList = this.updateShopList.bind(this);
   }
