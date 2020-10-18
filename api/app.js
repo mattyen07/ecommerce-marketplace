@@ -12,7 +12,7 @@ let createUserRouter = require('./routes/create_user');
 let createShopRouter = require('./routes/create_shop');
 let shopsRouter = require('./routes/shops');
 let authenticationRouter = require('./routes/authentication');
-const databaseHelpers = require('../helpers/databaseGet');
+const databaseHelpers = require('./helpers/databaseGet');
 
 // create this file and create the field, fill with db link (can be localhost if hosting locally)
 const dbURL = require('./config.json').azure_db_link;
