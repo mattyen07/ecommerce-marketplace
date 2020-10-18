@@ -8,6 +8,12 @@ exports.getShops = async function() {
     return allShops;
 }
 
+exports.getShopUUID = async function(email) {
+    const shopData = await Shop.findOne({email: email}).lean().exec();
+    console.log(shopData.uuid);
+    return shopData.uuid;
+}
+
 exports.getUser = async function(email) {
     // passing an empty filter to get all shops
     const user = await User.findOne({email: email}).lean().exec();
