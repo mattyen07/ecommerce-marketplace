@@ -7,7 +7,7 @@ const shopSchema = new Schema({
     email: String,
     items: [{
         name: String,
-        price: double,
+        price: Number,
     }],
     availability: {
         monday: {

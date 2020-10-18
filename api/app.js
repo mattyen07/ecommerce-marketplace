@@ -8,9 +8,10 @@ const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let createUserRouter = require('./routes/create_user');
+let createShopRouter = require('./routes/create_shop');
 
 // change this to change the URl of the database
-const dbURL = 'mongodb://localhost:27017/users';
+const dbURL = 'mongodb://localhost:27017/dubhacks2020';
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/create_user', createUserRouter);
+app.use('/create_shop', createShopRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
