@@ -10,9 +10,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let createUserRouter = require('./routes/create_user');
 let createShopRouter = require('./routes/create_shop');
+let shopsRouter = require('./routes/shops');
 
 // change this to change the URl of the database
-const dbURL = 'mongodb://dubhacks2020-ecommerce:QajXjBFdLmn3HyLktoo4joeO0mC10raG8AZKZi4TP5SiEg6fyyEvyUkzszeValgNvCM7ebbyLd3tGACRFTxrMw==@dubhacks2020-ecommerce.mongo.cosmos.azure.com:10255/?ssl=true&appName=@dubhacks2020-ecommerce@';
+const dbURL = 'mongodb://localhost:27017/dubhacks2020';
 
 var app = express();
 
@@ -30,7 +31,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/create_user', createUserRouter);
 app.use('/create_shop', createShopRouter);
-
+app.use('/shops', shopsRouter);
 
 //WebRTC server
 const server = app.listen(9001);
