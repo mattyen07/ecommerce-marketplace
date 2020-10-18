@@ -19,7 +19,7 @@ class Shop extends React.Component {
                <h1>{this.state.ownerName}</h1>
                <h1>{this.state.email}</h1>
                <h1>{this.state.address}</h1>
-               <button>Return</button>
+               <a target = "_blank" href="http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9001/7">Go To Video Call</a>
             </div>
          </div>
       );
