@@ -8,6 +8,11 @@ exports.getShops = async function() {
     return allShops;
 }
 
+exports.getShopFromEmail = async function(email) {
+    const shop = await Shop.find({email: email}).lean();
+    return shop;
+}
+
 exports.getShopUUID = async function(email) {
     const shopData = await Shop.findOne({email: email}).lean().exec();
     console.log(shopData.uuid);
