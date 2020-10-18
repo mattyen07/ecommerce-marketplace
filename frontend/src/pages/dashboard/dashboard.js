@@ -25,22 +25,16 @@ class Dashboard extends React.Component {
    }
 
    componentDidMount() {
-      this.getShops();
-   }
-
-   getShops = async () => {
-      try {
-         const response = await fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/shops');
-         const json = await response.json();
-         console.log(json);
-         this.setState((state) => {
-            return {shopList: json}
-          });
-          console.log('state has been set');
-      }
-      catch(e) {
-         console.log(e);
-      }
+      fetch('http://dubhacks2020-ecommerce.westus.cloudapp.azure.com:9000/shops', {
+         method: 'POST',
+         headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+         }
+      })
+      .then(res => res.json())
+      .then(json => console.log(json))
+      .catch(e => console.log(e)); 
    }
 
 
